@@ -102,19 +102,22 @@ function App() {
     numericWorkDaysPerYear > 0;
 
   return (
-    <main>
-      <section>
-        <h1>단기 알바 시급-일급 계산 웹 앱</h1>
-        <p>
-          근무시간과 시급을 입력하여 일급을 계산합니다.
-          <br />
-          1년 근무 수익과 미래 자산도 시뮬레이션합니다.
-        </p>
+    <main className="p-6">
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <h1>단기 알바 시급-일급 계산 웹 앱</h1>
+          <p>
+            근무시간과 시급을 입력하여 일급을 계산합니다.
+            <br />
+            1년 근무 수익과 미래 자산도 시뮬레이션합니다.
+          </p>
+        </div>
 
-        <div>
+        <div className="flex flex-col gap-2 w-full max-w-48 mx-auto">
           <label htmlFor="hourlyWage">시급</label>
           <input 
             id="hourlyWage"
+            className="border px-3 py-2 text-center"
             type="text"
             inputMode="numeric"
             value={hourlyWage}
@@ -125,10 +128,11 @@ function App() {
           />
         </div>
 
-        <div>
+        <div className="flex flex-col gap-2 w-full max-w-48 mx-auto">
           <label htmlFor="workHours">근무시간</label>
           <input
             id="workHours"
+            className="border px-3 py-2 text-center"
             type="number"
             value={workHours}
             onChange={(e) => setWorkHours(e.target.value)}
@@ -136,14 +140,14 @@ function App() {
           />
         </div>
 
-        <div>
+        <div className="space-y-6">
           <h2>계산 결과</h2>
           
           {isDailyPayCalculable ? (
-            <div>
+            <div className="space-y-2">
               <p>
                 일급은 {' '}
-                <strong>{dailyPay.toLocaleString()}원</strong>입니다.
+                <strong className="text-xl">{dailyPay.toLocaleString()}원</strong>입니다.
               </p>
             </div>
           ) : (
@@ -151,15 +155,17 @@ function App() {
           )}
 
           {isFutureAssetCalculable ? (
-            <div>
+            <div className="space-y-6">
               <h2>미래 자산 시뮬레이션</h2>
 
-              <p>1년에 250일 근무 시, 1년 근무 수익은 <strong>{yearlyIncome.toLocaleString()}</strong>원 입니다.</p>
+              <p>1년에 250일 근무 시, 1년 근무 수익은 <strong className="text-xl">{yearlyIncome.toLocaleString()}</strong>원 입니다.</p>
               <p>
                 이 금액을 연 20% 수익률로 30년간 굴리면
                 <br />
                 예상 자산은 {' '}
-                <strong>{formatKoreanMoney(flooredFutureAsset)} (₩ {flooredFutureAsset.toLocaleString()})</strong> 입니다.
+                <strong className="text-xl">
+                  {formatKoreanMoney(flooredFutureAsset)} (₩ {flooredFutureAsset.toLocaleString()})
+                </strong> 입니다.
               </p>
             </div>
           ) : (
