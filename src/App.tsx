@@ -155,18 +155,29 @@ function App() {
           )}
 
           {isFutureAssetCalculable ? (
-            <div className="space-y-6">
+            <div className="space-y-3">
               <h2>미래 자산 시뮬레이션</h2>
 
-              <p>1년에 250일 근무 시, 1년 근무 수익은 <strong className="text-xl">{yearlyIncome.toLocaleString()}</strong>원 입니다.</p>
-              <p>
-                이 금액을 연 20% 수익률로 30년간 굴리면
-                <br />
-                예상 자산은 {' '}
-                <strong className="text-xl">
-                  {formatKoreanMoney(flooredFutureAsset)} (₩ {flooredFutureAsset.toLocaleString()})
-                </strong> 입니다.
-              </p>
+              <div>
+                <p>1년에 250일 근무 시, 1년 근무 수익은 <strong className="text-xl">{yearlyIncome.toLocaleString()}</strong>원 입니다.</p>
+              </div>
+
+              <div>
+                <p>
+                  이 금액을 연 20% 수익률로 30년간 굴리면
+                  <br />
+                  예상 자산은 {' '}
+                  <strong className="text-xl">
+                    {formatKoreanMoney(flooredFutureAsset)} (₩ {flooredFutureAsset.toLocaleString()})
+                  </strong> 입니다.
+                </p>
+              </div>
+
+              <div>
+                <p className="mt-2 text-xs text-gray-500">
+                  * 본 결과는 입력값과 연 20% 수익률을 단순 가정한 시뮬레이션입니다.
+                </p>
+              </div>
             </div>
           ) : (
             <p>미래 자산 시뮬레이션이 진행되지 않고 있습니다.</p>
