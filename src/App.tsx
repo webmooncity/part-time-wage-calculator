@@ -152,7 +152,9 @@ function App() {
 
               <p>1년에 250일 근무 시, 1년 근무 수익은 <strong>{yearlyIncome.toLocaleString()}</strong>원 입니다.</p>
               <p>
-                이 금액을 연 20% 수익률로 30년간 굴리면 예상 자산은 {' '}
+                이 금액을 연 20% 수익률로 30년간 굴리면
+                <br />
+                예상 자산은 {' '}
                 <strong>{formatKoreanMoney(flooredFutureAsset)} (₩ {flooredFutureAsset.toLocaleString()})</strong> 입니다.
               </p>
             </div>
